@@ -101,8 +101,12 @@
 
 - (bool) processFrame:(const cv::Mat&) inputFrame into:(cv::Mat&) outputFrame
 {
-    _sample->processFrame(inputFrame, outputFrame);
-    return true;
+    return _sample->processFrame(inputFrame, outputFrame);
+}
+
+- (NSString*) processFrameStr:(const cv::Mat&) inputFrame into:(cv::Mat&) outputFrame
+{
+    return [NSString stringWithCString:_sample->processFrameStr(inputFrame, outputFrame).c_str() encoding:NSASCIIStringEncoding];
 }
 
 - (UIImage*) processFrame:(UIImage*) source
@@ -111,20 +115,8 @@
     cv::Mat outputImage;
     
     _sample->processFrame(inputImage, outputImage);
-    UIImage * resultImage = [UIImage imageWithMat:outputImage andImageOrientation:[source imageOrientation]];
-    return resultImage;
-}
-
-
-
-- (UIImage*) processFrame:(UIImage*) source result:(NSString**) resultSTR
-{
-    cv::Mat inputImage = [source toMat];
-    cv::Mat outputImage;
-    
-    *resultSTR = [NSString stringWithCString:_sample->processFrame(inputImage, outputImage).c_str() encoding:NSASCIIStringEncoding];
-    UIImage * resultImage = [UIImage imageWithMat:outputImage andImageOrientation:[source imageOrientation]];
-    return resultImage;
+    UIImage * result = [UIImage imageWithMat:outputImage andImageOrientation:[source imageOrientation]];
+    return result;
 }
 
 - (NSString *) friendlyName

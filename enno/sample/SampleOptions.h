@@ -34,8 +34,8 @@ public:
   
   virtual OptionKind getKind() override;
 
-  int getValue() const; 
-  bool setValue(int v); 
+  int getValue() const;
+  bool setValue(int v);
   
   int getMaxValue() const;
   int getMinValue() const;
@@ -54,16 +54,16 @@ public:
   
   virtual OptionKind getKind() override;
   
-  float getValue() const; 
-  bool setValue(float v); 
+  float getValue() const;
+  bool setValue(float v);
   
   float getMaxValue() const;
-  float getMinValue() const; 
+  float getMinValue() const;
   
 private:
   float * m_value;
   float   m_min;
-  float   m_max;  
+  float   m_max;
   float   m_default;
 };
 
@@ -74,16 +74,16 @@ public:
   
   virtual OptionKind getKind() override;
   
-  double getValue() const; 
-  bool setValue(double v); 
+  double getValue() const;
+  bool setValue(double v);
   
   double getMaxValue() const;
-  double getMinValue() const; 
+  double getMinValue() const;
   
 private:
   double * m_value;
   double   m_min;
-  double   m_max;  
+  double   m_max;
   double   m_default;
 };
 
@@ -105,9 +105,9 @@ private:
 class StringEnumOption : public SampleOption
 {
 public:
-  StringEnumOption(const std::string& name, 
-                   const std::string& section, 
-                   std::string* value, 
+  StringEnumOption(const std::string& name,
+                   const std::string& section,
+                   std::string* value,
                    std::vector<std::string> stringEnums,
                    size_t defaultValue = 0);
   

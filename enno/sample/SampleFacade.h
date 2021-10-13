@@ -27,7 +27,7 @@ typedef std::map<std::string, OptionsSection> OptionsMap;
 
 - (bool) processFrame:(const cv::Mat&) inputFrame into:(cv::Mat&) outputFrame;
 - (UIImage*) processFrame:(UIImage*) source;
-- (UIImage*) processFrame:(UIImage*) source result:(NSString**) resultSTR;
+- (NSString*) processFrameStr:(const cv::Mat&) inputFrame into:(cv::Mat&) outputFrame;
 
 - (OptionsMap) getOptions;
 

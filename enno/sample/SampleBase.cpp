@@ -58,7 +58,7 @@ void SampleBase::registerOption(std::string name, std::string section, double * 
 void SampleBase::registerOption(std::string name, std::string section, std::string* value, std::vector<std::string> stringEnums, int defaultValue)
 {
   SampleOption * opt = new StringEnumOption(name, section, value, stringEnums, defaultValue);
-  m_optionsWithSections[section].push_back(opt);  
+  m_optionsWithSections[section].push_back(opt);
   
   *value = stringEnums[defaultValue]; // Assign default value just in case
 }
@@ -78,7 +78,7 @@ void SampleBase::getGray(const cv::Mat& input, cv::Mat& gray)
   if (numChannes == 4)
   {
 #if TARGET_IPHONE_SIMULATOR
-    cv::cvtColor(input, gray, cv::COLOR_BGRA2GRAY);    
+    cv::cvtColor(input, gray, cv::COLOR_BGRA2GRAY);
 #else
     cv::neon_cvtColorBGRA2GRAY(input, gray);
 #endif

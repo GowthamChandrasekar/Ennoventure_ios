@@ -38,8 +38,10 @@ public:
     // Resets the reference frame
     virtual void resetReferenceFrame() const;
     
-    //! Processes a frame and returns output image 
-    virtual std::string processFrame(const cv::Mat& inputFrame, cv::Mat& outputFrame) = 0;
+    //! Processes a frame and returns output image
+    virtual bool processFrame(const cv::Mat& inputFrame, cv::Mat& outputFrame) = 0;
+    
+    virtual std::string processFrameStr(const cv::Mat& inputFrame, cv::Mat& outputFrame) = 0;
     
     bool hasIcon() const;
     
